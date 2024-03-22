@@ -1,0 +1,57 @@
+ ER model:
+
+** Entities:
+
+1 Gymnasium:
+2 Member:
+3 Session:
+4 Coach:
+
+** Attributes:
+
+1* Gymnasium:
+
+Gymnasium_ID (Unique identifier)
+Name
+Address
+Telephone number
+
+2* Member:
+
+Member_ID (Unique identifier)
+Last name
+First name
+Address
+Date of birth
+Gender
+Gymnasium_ID (Foreign key referencing Gymnasium)
+
+3* Session:
+
+Session_ID (Unique identifier)
+Type of sport
+Schedule
+Max capacity (e.g., 20 members)
+Gymnasium_ID (Foreign key referencing Gymnasium)
+
+4* Coach:
+
+Coach_ID (Unique identifier)
+Last name
+First name
+Age
+Specialty
+Session_ID (Foreign key referencing Session)
+
+5* Relationships:
+
+Member attends Session (Many-to-Many):
+
+.. A member can attend multiple sessions.
+A session can have multiple members.
+This relationship requires a junction table to handle the many-to-many relationship.
+Session is conducted by Coach (Many-to-Many):
+
+.. A session can be conducted by multiple coaches.
+A coach can conduct multiple sessions.
+This relationship also requires a junction table.
